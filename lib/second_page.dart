@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:riverpod_demo/providers.dart';
 
-class SecondPage extends StatelessWidget {
+class SecondPage extends ConsumerStatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
 
+  @override
+  ConsumerState<SecondPage> createState() => _SecondPageState();
+}
+
+class _SecondPageState extends ConsumerState<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +22,7 @@ class SecondPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'text',
+              ref.watch(nameProvider),
               style: GoogleFonts.poppins(fontSize: 25),
             ),
             ElevatedButton(
