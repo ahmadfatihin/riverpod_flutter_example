@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_demo/providers.dart';
 
-class CounterPage extends StatelessWidget {
+class CounterPage extends ConsumerWidget {
   const CounterPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    int number = ref.watch(counterProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter Page'),
@@ -14,13 +17,25 @@ class CounterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '0',
+              '$number',
               style: const TextStyle(fontSize: 30),
             ),
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(onPressed: () {}, child: const Text('Increment')),
+            ElevatedButton(
+                onPressed: () {
+                  ref.read(counterProvider.notifier).state += 1;
+                },
+                child: const Text('Increment')),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  ref.read(counterProvider.notifier).state -= 1;
+                },
+                child: const Text('Decrement')),
             const SizedBox(
               height: 20,
             ),
