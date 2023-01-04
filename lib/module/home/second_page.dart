@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:riverpod_demo/providers.dart';
+import 'package:riverpod_demo/module/home/home_providers.dart';
 
 class SecondPage extends ConsumerStatefulWidget {
   const SecondPage({Key? key}) : super(key: key);

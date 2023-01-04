@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_demo/module/counter/counter_page.dart';
+import 'package:riverpod_demo/module/form/form_name_page.dart';
 import 'package:riverpod_demo/module/home/home_providers.dart';
 import 'package:riverpod_demo/module/home/second_page.dart';
 
@@ -30,7 +31,25 @@ class MainPage extends ConsumerWidget {
                         builder: (context) => const CounterPage(),
                       ));
                 },
-                child: const Text('Go to Counter Page'))
+                child: const Text('Go to Counter Page')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FormNamePage(),
+                      ));
+                },
+                child: const Text('Go to Form Page')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SecondPage(),
+                      ));
+                },
+                child: const Text('Go to Second Page'))
           ],
         ),
       ),
