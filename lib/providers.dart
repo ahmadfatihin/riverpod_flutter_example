@@ -8,6 +8,6 @@ final greetingProvider = Provider<String>((ref) {
   return 'Hi, ${ref.watch(nameProvider)}';
 });
 
-final counterProvider = StateProvider<int>((ref) {
+final counterProvider = StateProvider.autoDispose<int>((ref) {
   return 0;
 });

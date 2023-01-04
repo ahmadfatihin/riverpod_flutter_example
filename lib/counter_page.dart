@@ -40,7 +40,10 @@ class CounterPage extends ConsumerWidget {
               height: 20,
             ),
             ElevatedButton(
-                onPressed: () {}, child: const Text('Reset (Invalidate)')),
+                onPressed: () {
+                  ref.invalidate(counterProvider);
+                },
+                child: const Text('Reset (Invalidate)')),
           ],
         ),
       ),
