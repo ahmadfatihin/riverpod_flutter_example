@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:riverpod_demo/counter_page.dart';
-import 'package:riverpod_demo/providers.dart';
-import 'package:riverpod_demo/second_page.dart';
+import 'package:riverpod_demo/module/counter/counter_page.dart';
+import 'package:riverpod_demo/module/home/home_providers.dart';
+import 'package:riverpod_demo/module/home/second_page.dart';
 
 class MainPage extends ConsumerWidget {
   const MainPage({Key? key}) : super(key: key);
