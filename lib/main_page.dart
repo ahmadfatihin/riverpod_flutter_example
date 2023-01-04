@@ -19,7 +19,7 @@ class MainPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              ref.watch(nameProvider),
+              ref.watch(greetingProvider),
               style: GoogleFonts.poppins(fontSize: 25),
             ),
             ElevatedButton(
