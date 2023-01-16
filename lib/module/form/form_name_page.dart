@@ -10,9 +10,10 @@ class FormNamePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var form = ref.watch(formProvider);
+    var age = ref.watch(formProvider.select((value) => value.age));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Person Provider Demo'),
+        title: const Text('State Notifier Provider Demo'),
       ),
       body: Center(
         child: Padding(
@@ -44,7 +45,7 @@ class FormNamePage extends ConsumerWidget {
                 height: 20,
               ),
               Text(
-                '${form.age}',
+                '$age',
                 style: const TextStyle(fontSize: 30),
               ),
               const SizedBox(
