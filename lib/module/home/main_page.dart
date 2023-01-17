@@ -5,6 +5,7 @@ import 'package:riverpod_demo/module/counter/counter_page.dart';
 import 'package:riverpod_demo/module/form/form_name_page.dart';
 import 'package:riverpod_demo/module/home/home_providers.dart';
 import 'package:riverpod_demo/module/home/second_page.dart';
+import 'package:riverpod_demo/module/weather/screens/future_provider_screen.dart';
 
 class MainPage extends ConsumerWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -22,6 +23,7 @@ class MainPage extends ConsumerWidget {
             Text(
               ref.watch(greetingProvider),
               style: GoogleFonts.poppins(fontSize: 25),
+              textAlign: TextAlign.center,
             ),
             ElevatedButton(
                 onPressed: () {
@@ -31,7 +33,7 @@ class MainPage extends ConsumerWidget {
                         builder: (context) => const CounterPage(),
                       ));
                 },
-                child: const Text('Go to Counter Page')),
+                child: const Text('Go to Counter Page (State Provider)')),
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -40,7 +42,16 @@ class MainPage extends ConsumerWidget {
                         builder: (context) => FormNamePage(),
                       ));
                 },
-                child: const Text('Go to Form Page')),
+                child: const Text('Go to Form Page (State Notifier Provider)')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FutureProviderScreen(),
+                      ));
+                },
+                child: const Text('Go to Weather Page (Future Provider)')),
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
