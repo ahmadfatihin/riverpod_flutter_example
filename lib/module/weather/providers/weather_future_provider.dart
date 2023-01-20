@@ -5,6 +5,7 @@ final weatherRepositoryProvider = Provider<WeatherRepository>((ref) {
   return WeatherRepository();
 });
 
+//Future use async
 final weatherFutureProvider = FutureProvider<Weathers>((ref) async {
   return ref.watch(weatherRepositoryProvider).getCurrentWeather('Bekasi');
 });

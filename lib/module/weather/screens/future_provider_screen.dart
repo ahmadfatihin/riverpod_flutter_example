@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_demo/module/weather/providers/weather_provider.dart';
+import 'package:riverpod_demo/module/weather/providers/weather_future_provider.dart';
 
 class FutureProviderScreen extends ConsumerWidget {
   const FutureProviderScreen({super.key});
@@ -28,7 +26,7 @@ class FutureProviderScreen extends ConsumerWidget {
                                 ),
                             error: ((error, stackTrace) =>
                                 Text(error.toString())),
-                            loading: () => Text('Loading')))),
+                            loading: () => const Text('Loading')))),
             Material(
               type: MaterialType.transparency,
               child: Ink(
@@ -42,9 +40,8 @@ class FutureProviderScreen extends ConsumerWidget {
                   onTap: () {
                     ref.invalidate(weatherFutureProvider);
                     ref.read(weatherFutureProvider);
-                    print('1');
                   },
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.refresh,
