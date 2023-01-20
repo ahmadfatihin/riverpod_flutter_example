@@ -17,23 +17,10 @@ class FormNamePage extends ConsumerWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: 45,
-                width: 300,
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.blue)),
-                child: TextField(
-                  controller: controller,
-                  decoration: const InputDecoration(
-                      border: InputBorder.none, hintText: 'New Name'),
-                ),
-              ),
               const SizedBox(
                 height: 20,
               ),
@@ -47,6 +34,21 @@ class FormNamePage extends ConsumerWidget {
               Text(
                 '$age',
                 style: const TextStyle(fontSize: 30),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Container(
+                height: 45,
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.blue)),
+                child: TextField(
+                  controller: controller,
+                  decoration: const InputDecoration(
+                      border: InputBorder.none, hintText: 'New Name'),
+                ),
               ),
               const SizedBox(
                 height: 20,
