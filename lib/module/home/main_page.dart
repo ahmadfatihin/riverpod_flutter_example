@@ -5,6 +5,7 @@ import 'package:riverpod_demo/module/counter/counter_page.dart';
 import 'package:riverpod_demo/module/form/form_name_page.dart';
 import 'package:riverpod_demo/module/home/home_providers.dart';
 import 'package:riverpod_demo/module/home/second_page.dart';
+import 'package:riverpod_demo/module/users/screens/user_screen.dart';
 import 'package:riverpod_demo/module/weather/screens/future_provider_screen.dart';
 
 class MainPage extends ConsumerWidget {
@@ -72,7 +73,7 @@ class MainPage extends ConsumerWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const FutureProviderScreen(),
+                          builder: (context) => const UserScreen(),
                         ));
                   },
                   child: const Text('Go to User Page (Rest API Request)')),

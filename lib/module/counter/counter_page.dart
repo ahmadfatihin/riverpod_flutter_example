@@ -28,17 +28,17 @@ class CounterPage extends ConsumerWidget {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      ref.read(counterProvider.notifier).state += 1;
+                      ref.read(counterProvider.notifier).state -= 1;
                     },
-                    child: const Text('Increment ++')),
+                    child: const Text('Decrement -- ')),
                 const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      ref.read(counterProvider.notifier).state -= 1;
+                      ref.read(counterProvider.notifier).state += 1;
                     },
-                    child: const Text('Decrement -- ')),
+                    child: const Text('Increment ++')),
               ],
             ),
             const SizedBox(
