@@ -24,7 +24,7 @@ class UserScreen extends ConsumerWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("${data!.firstName} ${data.lastName}"),
+                        Text("${data.firstName} ${data.lastName}"),
                         Text(data.email),
                       ],
                     ),

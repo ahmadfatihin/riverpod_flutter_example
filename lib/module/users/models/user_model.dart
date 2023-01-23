@@ -1,33 +1,32 @@
-class UserModel {
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user_model.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class UserModel extends Equatable {
+  final int id;
+  @JsonKey(disallowNullValue: true, defaultValue: '')
+  String email;
+  String? firstName;
+  String? lastName;
+  @JsonKey(disallowNullValue: true, defaultValue: '')
+  String avatar;
   UserModel({
     required this.id,
     required this.email,
-    required this.firstName,
-    required this.lastName,
+    this.firstName,
+    this.lastName,
     required this.avatar,
   });
 
-  int id;
-  String email;
-  String firstName;
-  String lastName;
-  String avatar;
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
+  Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        email: json["email"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        avatar: json["avatar"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "email": email,
-        "first_name": firstName,
-        "last_name": lastName,
-        "avatar": avatar,
-      };
+  @override
+  List<Object?> get props => [id, email, firstName, lastName, avatar];
 }
 
 
