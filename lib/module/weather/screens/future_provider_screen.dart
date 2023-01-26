@@ -25,7 +25,7 @@ class FutureProviderScreen extends ConsumerWidget {
                                   child: Image.asset(data.path),
                                 ),
                             error: ((error, stackTrace) =>
-                                Text(error.toString())),
+                                Text("Request Error: ${error.toString()}")),
                             loading: () => const Text('Loading')))),
             Material(
               type: MaterialType.transparency,
@@ -38,8 +38,9 @@ class FutureProviderScreen extends ConsumerWidget {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(500.0),
                   onTap: () {
-                    ref.invalidate(weatherFutureProvider);
-                    ref.read(weatherFutureProvider);
+                    // ignore: unused_result
+                    ref.refresh(weatherFutureProvider);
+                    // ref.read(weatherFutureProvider);
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(20.0),

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:riverpod_demo/module/users/models/user_model.dart';
 
 class UserRepository {
@@ -9,18 +10,22 @@ class UserRepository {
   UserRepository({Dio? dio}) : _dio = dio;
 
   Future<UserModel?> getUser(int id) async {
-    log('Ambil data user');
+    // log('Ambil data user');
+    // log(id.toString());
 
-    await Future.delayed(const Duration(seconds: 2));
+    var dio = Dio();
+    dio.interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+    ));
 
-    try {
-      var response =
-          await (_dio ?? Dio()).get('https://reqres.in/api/users/$id');
+    await Future.delayed(const Duration(seconds: 1));
 
-      log('Kembalikan data user');
-      return UserModel.fromJson(response.data['data']);
-    } catch (e) {
-      return null;
-    }
+    var response = await dio.get('https://reqres.in/api/users/$id');
+
+    log(response.data.toString());
+
+    // log('Kembalikan data user');
+    return UserModel.fromJson(response.data['data']);
   }
 }

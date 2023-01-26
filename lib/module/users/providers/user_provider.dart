@@ -8,7 +8,6 @@ import '../repositories/user_repository.dart';
 var userRepositoryProvider = Provider(
   (ref) => UserRepository(),
 );
-
-var userProvider = FutureProvider<UserModel?>(
-  (ref) => ref.watch(userRepositoryProvider).getUser(Random().nextInt(25)),
-);
+var userProvider = FutureProvider<UserModel?>((ref) {
+  return ref.watch(userRepositoryProvider).getUser(Random().nextInt(15) + 1);
+});

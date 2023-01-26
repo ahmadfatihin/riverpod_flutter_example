@@ -14,25 +14,37 @@ class UserScreen extends ConsumerWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ref.watch(userProvider).when(
-                data: (data) => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CircleAvatar(backgroundImage: NetworkImage(data!.avatar)),
-                    const SizedBox(width: 20),
-                    Column(
+          Consumer(
+            builder: (context, ref, child) => ref.watch(userProvider).when(
+                  skipLoadingOnRefresh: false,
+                  data: (data) {
+                    return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("${data.firstName} ${data.lastName}"),
-                        Text(data.email),
+                        CircleAvatar(
+                            backgroundImage: NetworkImage(data!.avatar)),
+                        const SizedBox(width: 20),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("${data.firstName} ${data.lastName}"),
+                            Text(data.email),
+                          ],
+                        ),
                       ],
+                    );
+                  },
+                  error: (error, stackTrace) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      "Request Error: \n ${error.toString()}",
+                      maxLines: 10,
                     ),
-                  ],
+                  ),
+                  loading: () => const Center(child: Text('Loading')),
                 ),
-                error: (error, stackTrace) => Text(error.toString()),
-                loading: () => const Center(child: Text('Loading')),
-              ),
+          ),
           Material(
             type: MaterialType.transparency,
             child: Ink(

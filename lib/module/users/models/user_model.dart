@@ -7,17 +7,19 @@ part 'user_model.g.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class UserModel extends Equatable {
   final int id;
-  @JsonKey(disallowNullValue: true, defaultValue: '')
+  @JsonKey(defaultValue: '-')
   String email;
-  String? firstName;
-  String? lastName;
-  @JsonKey(disallowNullValue: true, defaultValue: '')
+  @JsonKey(defaultValue: 'N/A')
+  String firstName;
+  @JsonKey(defaultValue: 'N/A')
+  String lastName;
+  @JsonKey(defaultValue: 'https://unsplash.com/photos/UTYrPq7meA0')
   String avatar;
   UserModel({
     required this.id,
     required this.email,
-    this.firstName,
-    this.lastName,
+    required this.firstName,
+    required this.lastName,
     required this.avatar,
   });
 

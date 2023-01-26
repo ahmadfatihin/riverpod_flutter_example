@@ -14,7 +14,7 @@ enum Weathers {
 class WeatherRepository {
   int _currentWeatherIndex = 0;
   Future<Weathers> getCurrentWeather(String city) async {
-    await Future.delayed(const Duration(milliseconds: 90));
+    await Future.delayed(const Duration(milliseconds: 100));
 
     if (_currentWeatherIndex > 3) _currentWeatherIndex = 0;
     switch (_currentWeatherIndex++) {
