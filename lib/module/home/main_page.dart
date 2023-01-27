@@ -5,6 +5,7 @@ import 'package:riverpod_demo/module/counter/counter_page.dart';
 import 'package:riverpod_demo/module/form/form_name_page.dart';
 import 'package:riverpod_demo/module/home/home_providers.dart';
 import 'package:riverpod_demo/module/home/second_page.dart';
+import 'package:riverpod_demo/module/themes/theme_provider.dart';
 import 'package:riverpod_demo/module/users/screens/user_screen.dart';
 import 'package:riverpod_demo/module/weather/screens/future_provider_screen.dart';
 
@@ -13,9 +14,29 @@ class MainPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var bool = true;
+    final theme = ref.watch(themeProvider);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: const Text('Main Page'),
+        actions: [
+          InkWell(
+            onTap: () {
+              final currentValue = theme;
+              ref.read(themeProvider.notifier).setThemeDark(!currentValue);
+            },
+            child: AnimatedSwitcher(
+              switchInCurve: Curves.linear,
+              duration: const Duration(milliseconds: 500),
+              child: Icon(
+                key: Key(theme ? "dark" : "light"),
+                theme ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                color: Color(0xff039be5),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Padding(

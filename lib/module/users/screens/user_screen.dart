@@ -56,8 +56,7 @@ class UserScreen extends ConsumerWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(500.0),
                 onTap: () {
-                  ref.invalidate(userProvider);
-                  ref.read(userProvider);
+                  ref.refresh(userProvider);
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(20.0),
