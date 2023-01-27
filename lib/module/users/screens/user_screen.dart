@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_demo/module/users/providers/user_provider.dart';
 
 class UserScreen extends ConsumerWidget {
@@ -22,13 +23,20 @@ class UserScreen extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                            backgroundImage: NetworkImage(data!.avatar)),
+                        SizedBox(
+                          height: 60,
+                          width: 60,
+                          child: CircleAvatar(
+                              backgroundImage: NetworkImage(data!.avatar)),
+                        ),
                         const SizedBox(width: 20),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("${data.firstName} ${data.lastName}"),
+                            Text(
+                              "${data.firstName} ${data.lastName}",
+                              style: GoogleFonts.poppins(fontSize: 20),
+                            ),
                             Text(data.email),
                           ],
                         ),
