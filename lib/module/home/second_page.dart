@@ -3,16 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_demo/module/home/home_providers.dart';
 
-class SecondPage extends ConsumerStatefulWidget {
-  const SecondPage({Key? key}) : super(key: key);
-
+class SecondPage extends ConsumerWidget {
   @override
-  ConsumerState<SecondPage> createState() => _SecondPageState();
-}
-
-class _SecondPageState extends ConsumerState<SecondPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Page'),
@@ -22,8 +15,8 @@ class _SecondPageState extends ConsumerState<SecondPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              ref.watch(nameProvider),
-              style: GoogleFonts.poppins(fontSize: 25),
+              ref.watch(creatorProvider),
+              style: GoogleFonts.poppins(fontSize: 20),
             ),
             ElevatedButton(
                 onPressed: () {

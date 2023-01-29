@@ -1,5 +1,5 @@
 name: riverpod_demo
-description: A new Flutter project.
+description: https://github.com/ahmadfatihin.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -80,5 +80,4 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # https://github.com/ahmadfatihin

@@ -13,7 +13,7 @@ class FormNamePage extends ConsumerWidget {
     var age = ref.watch(formProvider.select((value) => value.age));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('State Notifier Provider Demo'),
+        title: const Text('State Notifier Provider'),
       ),
       body: Center(
         child: Padding(

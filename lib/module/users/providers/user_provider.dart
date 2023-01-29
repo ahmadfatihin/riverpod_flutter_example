@@ -9,5 +9,5 @@ var userRepositoryProvider = Provider(
   (ref) => UserRepository(),
 );
 var userProvider = FutureProvider<UserModel?>((ref) {
-  return ref.watch(userRepositoryProvider).getUser(Random().nextInt(15) + 1);
+  return ref.watch(userRepositoryProvider).getUser(Random().nextInt(11) + 1);
 });

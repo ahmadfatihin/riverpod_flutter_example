@@ -133,7 +133,7 @@ class MainPage extends ConsumerWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SecondPage(),
+                              builder: (context) => SecondPage(),
                             ));
                       },
                       child: const Text('Go to Second Page'))

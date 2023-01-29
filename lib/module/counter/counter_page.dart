@@ -10,7 +10,7 @@ class CounterPage extends ConsumerWidget {
     int number = ref.watch(counterProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter Page'),
+        title: const Text('Counter Page (State Provider)'),
       ),
       body: Center(
         child: Column(

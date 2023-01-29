@@ -10,7 +10,7 @@ class UserScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riverpod Modifiers'),
+        title: const Text('Riverpod Rest API'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
